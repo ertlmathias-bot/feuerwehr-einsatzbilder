@@ -45,15 +45,14 @@
   .photo-tools{background:#f8fafc;border:1px solid #e6ebf1;border-radius:9px;padding:12px;margin-top:11px}
   .zoom-row{display:flex;gap:10px;align-items:center}.zoom-row label{font-size:12px;font-weight:700;flex-shrink:0}.zoom-row input{flex:1;min-width:65px;accent-color:var(--red)}
   .text-button{border:none;background:none;color:#a91724;font-weight:700;font-size:12px}.photo-tools .hint{margin-top:9px}
-  .more-settings{border-top:1px solid var(--line);margin-top:19px;padding-top:15px}.more-settings summary{cursor:pointer;color:#425266;font-size:13px;font-weight:700;list-style:none;display:flex;align-items:center;gap:7px;min-height:28px}
-  .more-settings summary::-webkit-details-marker{display:none}.more-settings summary:before{content:'+';font-size:20px;font-weight:400;line-height:1}.more-settings[open] summary:before{content:'−'}
-  .more-content{display:grid;gap:13px;padding-top:14px}.more-content .field small{font-size:11px;color:var(--muted);line-height:1.4}
+
+  .input-uppercase{text-transform:uppercase}.position-controls{display:grid;gap:8px;margin-top:11px}.position-controls label{display:flex;gap:10px;align-items:center;color:#586678;font-size:12px}.position-controls label span{min-width:83px}.position-controls input{flex:1;min-width:0;accent-color:var(--red)}
   .download-area{display:grid;gap:9px;margin-top:19px}.primary-button{border:1px solid var(--red);background:var(--red);color:#fff;font-size:15px;font-weight:800;min-height:52px;border-radius:9px;padding:12px 15px}
   .primary-button:hover{background:var(--red-hover)}.secondary-button{background:#fff;color:#293a4c;border:1px solid #cdd5df;border-radius:9px;font-size:14px;min-height:44px;font-weight:700}
   .download-sub{display:grid;grid-template-columns:1fr 1fr;gap:9px}.privacy{font-size:11px;color:#7a8797;line-height:1.4;margin-top:2px}#export-message{font-size:12px;color:#556578}
   .preview-column{position:sticky;top:16px}.preview-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:11px}.preview-heading h3{font-size:17px;letter-spacing:-.3px}.preview-heading span{font-size:11px;color:var(--muted)}
   .canvas-wrap{width:100%;max-width:500px;margin:auto;background:#17212e;border-radius:11px;overflow:hidden;box-shadow:0 12px 35px rgba(17,33,55,.13)}
-  canvas{display:block;width:100%;height:auto;aspect-ratio:4/5;touch-action:none;cursor:grab}canvas:active{cursor:grabbing}.preview-note{margin-top:11px;display:flex;align-items:flex-start;gap:7px;color:#6e7a8a;font-size:11px;line-height:1.4}.note-dot{width:6px;height:6px;margin-top:5px;flex-shrink:0;background:var(--red);border-radius:100%}
+  canvas{display:block;width:100%;height:auto;aspect-ratio:4/5;touch-action:pan-y;cursor:default}@media(hover:hover) and (pointer:fine){canvas.photo-draggable{cursor:grab}canvas.photo-draggable:active{cursor:grabbing}}.preview-note{margin-top:11px;display:flex;align-items:flex-start;gap:7px;color:#6e7a8a;font-size:11px;line-height:1.4}.note-dot{width:6px;height:6px;margin-top:5px;flex-shrink:0;background:var(--red);border-radius:100%}
   .page-footer{padding:28px 2px 0;text-align:center;font-size:11px;color:#778395}
   @media(max-width:800px){.app-grid{grid-template-columns:1fr;gap:21px}.page{max-width:590px;padding-top:18px}.preview-column{position:static}.preview-column .canvas-wrap{max-width:420px}}
   @media(max-width:500px){.header-inner{min-height:64px;padding:12px 15px;gap:11px}.brand-mark{width:37px;height:37px}.brand-mark span{height:19px}.header-inner h1{font-size:18px}.eyebrow{font-size:9px}.page{padding:15px 12px 30px}.work-title{margin-bottom:12px}.work-title h2{font-size:17px}.format{font-size:10px;padding:6px 9px}.panel{padding:17px 14px;border-radius:12px}.panel-heading{margin-bottom:15px}.fields-grid{gap:11px}.asset img,.asset-swatch{height:70px}.asset>span:last-child{font-size:11px}.preview-heading h3{font-size:16px}.suggest-row{flex-direction:column;gap:3px}.suggest-row p{padding:0}.canvas-wrap{max-width:380px}.page-footer{padding-top:19px}}
@@ -63,57 +62,48 @@
 <header class="site-header">
  <div class="header-inner">
    <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
-   <div><p class="eyebrow">EINSATZBILDER</p><h1>Einsatzbild erstellen</h1></div>
+   <h1>Einsatzbild erstellen</h1>
  </div>
 </header>
 <main class="page">
- <div class="work-title"><h2>Neuer Einsatz</h2><span class="format">Instagram · 4:5</span></div>
  <div class="app-grid">
    <section class="panel editor" aria-labelledby="editor-heading">
-     <div class="panel-heading"><span class="step">1</span><h3 id="editor-heading">Einsatzdaten</h3></div>
+     <div class="panel-heading"><h3 id="editor-heading">Einsatzdaten</h3></div>
      <div class="fields-grid">
        <label class="field"><span>Einsatznummer</span><input id="number" type="number" min="1" max="9999" value="" placeholder="z. B. 51" inputmode="numeric" autocomplete="off"></label>
        <label class="field"><span>Jahr</span><input id="year" type="number" min="2000" max="2100" value="2026" inputmode="numeric"></label>
-       <label class="field wide"><span>Alarmstichwort</span><input id="keyword" type="text" value="" maxlength="65" placeholder="z. B. B3 oder THL 1" autocomplete="off"></label>
+       <label class="field wide"><span>Alarmstichwort</span><input id="keyword" class="input-uppercase" type="text" value="" maxlength="65" placeholder="z. B. B3 oder THL 1" autocomplete="off"></label>
+       <label class="field wide"><span>Feuerwehr / Ort</span><input id="sender" class="input-uppercase" type="text" value="" maxlength="45" placeholder="z. B. Musterstadt" autocomplete="off" required></label>
      </div>
      <div class="section-rule"></div>
-     <div class="panel-heading"><span class="step">2</span><h3>Foto auswählen</h3></div>
+     <div class="panel-heading"><h3>Foto auswählen</h3></div>
      <div class="upload-zone" id="drop-zone">
        <input type="file" id="photo-upload" accept="image/png,image/jpeg,image/webp,image/heic,image/heif" aria-label="Eigenes Foto auswählen">
-       <label for="photo-upload" class="upload-label"><span class="upload-icon" aria-hidden="true">+</span><span><strong>Eigenes Foto verwenden</strong><small>Aus der Fotomediathek auswählen</small></span></label>
+       <label for="photo-upload" class="upload-label"><span class="upload-icon" aria-hidden="true">+</span><span><strong>Eigenes Foto auswählen</strong></span></label>
      </div>
      <div class="asset-grid" id="gallery-grid" role="group" aria-label="Hintergrund auswählen">
        <button class="asset" id="preset-neutral-red" type="button" aria-pressed="false"><span class="asset-swatch red" aria-hidden="true"></span><span>Rot</span></button>
        <button class="asset active" id="preset-neutral-dark" type="button" aria-pressed="true"><span class="asset-swatch dark" aria-hidden="true"></span><span>Dunkel</span></button>
      </div>
-     <p class="hint gallery-more" id="gallery-status" role="status" aria-live="polite">Weitere Bilder werden geladen …</p>
-     <div class="suggest-row"><button id="suggest" class="small-button" type="button">Passendes Bild vorschlagen</button><p id="suggest-explanation" role="status" aria-live="polite"></p></div>
      <div class="photo-tools" id="photo-tools" hidden>
        <div class="zoom-row"><label for="zoom">Fotoausschnitt</label><input id="zoom" type="range" min="1" max="2.4" step="0.01" value="1"><button id="reset-position" class="text-button" type="button">Zurücksetzen</button></div>
-       <p class="hint">Foto in der Vorschau mit dem Finger verschieben.</p>
+       <div class="position-controls" aria-label="Bildausschnitt verschieben">
+         <label><span>↔ Horizontal</span><input id="pan-horizontal" type="range" min="-1" max="1" step="0.01" value="0" aria-label="Bild horizontal verschieben"></label>
+         <label><span>↕ Vertikal</span><input id="pan-vertical" type="range" min="-1" max="1" step="0.01" value="0" aria-label="Bild vertikal verschieben"></label>
+       </div>
      </div>
-     <label class="checkline"><input id="symbol" type="checkbox" checked><span><strong>Symbolbild kennzeichnen</strong><small>Standardmäßig aktiviert · bei echtem Einsatzfoto abwählen</small></span></label>
+     <label class="checkline"><input id="symbol" type="checkbox" checked><span><strong>Symbolbild</strong></span></label>
      <div class="download-area">
-       <button class="primary-button" id="share-jpg" type="button">Bild speichern oder teilen ↗</button>
-       <button class="secondary-button" id="download-jpg" type="button">Als JPG herunterladen</button>
+       <button class="primary-button" id="share-png" type="button">Teilen / In Fotos sichern ↗</button>
+       <button class="secondary-button" id="download-png" type="button">PNG herunterladen ↓</button>
        <p id="export-message" role="status" aria-live="polite"></p>
      </div>
-     <details class="more-settings">
-       <summary>Weitere Einstellungen</summary>
-       <div class="more-content">
-         <label class="field"><span>Feuerwehr / Ort (optional)</span><input id="sender" type="text" value="" maxlength="45" placeholder="z. B. Musterstadt" autocomplete="off"><small>Wird nur auf diesem Gerät gespeichert. Ohne Eingabe bleibt das Design neutral.</small></label>
-         <button class="secondary-button" id="download-png" type="button">Als PNG herunterladen</button>
-         <p class="privacy">Nur freigegebene Bilder verwenden. Eigene Fotos bleiben bei der Bearbeitung auf deinem Gerät. Zentral hinterlegte Galeriebilder sind öffentlich abrufbar.</p>
-       </div>
-     </details>
    </section>
    <section class="preview-column" aria-labelledby="preview-heading">
      <div class="preview-heading"><h3 id="preview-heading">Vorschau</h3><span>1080 × 1350 px</span></div>
-     <div class="canvas-wrap"><canvas id="preview" width="1080" height="1350" aria-label="Vorschau des Einsatzbildes. Bei einem Foto kann der Ausschnitt durch Ziehen verändert werden." role="img"></canvas></div>
-     <div class="preview-note"><span class="note-dot" aria-hidden="true"></span><p>Die Grafik wird lokal erstellt. Das ausgewählte Foto wird nicht automatisch hochgeladen.</p></div>
+     <div class="canvas-wrap"><canvas id="preview" width="1080" height="1350" aria-label="Vorschau des Einsatzbildes" role="img"></canvas></div>
    </section>
  </div>
- <footer class="page-footer">Einsatzbild-Generator · Nur zur Veröffentlichung freigegebene Bilder verwenden</footer>
 </main>
 <script>
 (() => {
@@ -128,7 +118,6 @@
     mode: 'neutral-dark', image: null, zoom: 1, panX: 0, panY: 0, sender: '',
     ready: false, uploadUrl: null, source: 'neutral', galleryName: null
   };
-  const galleryPhotos = [];
   const overlay = new Image();
   const nodes = {
     neutralRed: $('preset-neutral-red'), neutralDark: $('preset-neutral-dark')
@@ -150,6 +139,7 @@
     $('zoom').disabled = mode !== 'photo';
     $('reset-position').disabled = mode !== 'photo';
     $('photo-tools').hidden = mode !== 'photo';
+    canvas.classList.toggle('photo-draggable', mode === 'photo');
     draw();
   }
   // Die Galerie wird automatisch aus dem GitHub-Ordner "bilder" eingelesen.
@@ -171,26 +161,21 @@
       state.panX = 0;
       state.panY = 0;
       $('zoom').value = '1';
+      $('pan-horizontal').value = '0'; $('pan-vertical').value = '0';
       setMode('photo');
-      $('suggest-explanation').textContent = 'Galeriefoto „' + photoLabel(photo.name) + '“ ausgewählt.';
     };
     img.onerror = () => { alert('Das Galeriebild konnte gerade nicht geladen werden. Bitte ein anderes Foto wählen.'); };
     img.src = galleryPhotoUrl(photo);
   }
   async function loadGallery() {
-    const message = $('gallery-status');
     try {
-      const response = await fetch(GALLERY_API, { headers: { 'Accept': 'application/vnd.github+json' }, cache: 'no-store' });
-      if (response.status === 404) {
-        message.textContent = 'Aktuell sind noch keine zusätzlichen Galeriebilder hinterlegt.';
-        return;
-      }
-      if (!response.ok) throw new Error(String(response.status));
+      const response = await fetch(GALLERY_API, {headers: {'Accept':'application/vnd.github+json'}, cache:'no-store'});
+      if (!response.ok) return;
       const files = await response.json();
-      if (!Array.isArray(files)) throw new Error('Ungültige Galerie');
-      const photos = files.filter(file => file.type === 'file' && /\.(jpe?g|png|webp)$/i.test(file.name)).sort((a,b) => a.name.localeCompare(b.name, 'de'));
+      if (!Array.isArray(files)) return;
+      const photos = files.filter(file => file.type === 'file' && /\.(jpe?g|png|webp)$/i.test(file.name))
+        .sort((a,b) => a.name.localeCompare(b.name, 'de'));
       for (const photo of photos) {
-        galleryPhotos.push(photo);
         const button = document.createElement('button');
         button.type = 'button';
         button.className = 'asset';
@@ -207,19 +192,9 @@
         button.addEventListener('click', () => useGalleryPhoto(photo));
         $('gallery-grid').appendChild(button);
       }
-      message.textContent = photos.length
-        ? photos.length + ' zusätzliche' + (photos.length === 1 ? 's Galeriebild' : ' Galeriebilder') + ' verfügbar. Neue freigegebene Fotos erscheinen hier automatisch.'
-        : 'Noch keine zusätzlichen Galeriebilder. Du kannst trotzdem ein eigenes Foto hochladen.';
-    } catch (error) {
-      message.textContent = 'Zusätzliche Galeriebilder sind gerade nicht abrufbar. Eigene Fotos und die Standardmotive funktionieren weiterhin.';
+    } catch (_) {
+      // Galerie optional: Eigene Fotos und neutrale Hintergründe bleiben nutzbar.
     }
-  }
-  function galleryScore(photo, keyword) {
-    const name = photoLabel(photo.name).toUpperCase();
-    const k = keyword.toUpperCase();
-    if (/^B\d|BRAND|FEUER/.test(k)) return (/\bB\d\b/.test(name) ? 4 : 0) + (/(BRAND|FEUER|HLF|LF)/.test(name) ? 3 : 0);
-    if (/^(THL|VU|R\d|RETTUNG)/.test(k)) return (/(THL|UNFALL|RETTUNG|VERKEHR|VU)/.test(name) ? 4 : 0);
-    return k && name.includes(k) ? 3 : 0;
   }
   function neutralBackground(mode) {
     const dark = mode === 'neutral-dark';
@@ -293,13 +268,13 @@
     ctx.shadowBlur = 9;
     ctx.fillText(headline, 57, 1010);
     ctx.shadowBlur = 0;
-    const subtitle = `Stichwort ${state.keyword || '–'}`;
+    const subtitle = `Stichwort ${(state.keyword || '–').toLocaleUpperCase('de-DE')}`;
     const subtitleSize = fittingText(subtitle, 51, 23, 962, 500);
     ctx.font = `500 ${subtitleSize}px Arial, Helvetica, sans-serif`;
     ctx.fillStyle = '#fff';
     ctx.fillText(subtitle, 57, 1170);
     // Footer branding is optional, with no locality written into the public template.
-    const footer = state.sender.trim() ? `FREIWILLIGE FEUERWEHR ${state.sender.trim().toLocaleUpperCase('de-DE')}` : 'FREIWILLIGE FEUERWEHR';
+    const footer = state.sender.trim() ? `FREIWILLIGE FEUERWEHR ${state.sender.trim().toLocaleUpperCase('de-DE')}` : 'FREIWILLIGE FEUERWEHR · ORT EINGEBEN';
     const footerSize = fittingText(footer, 22, 15, 780, 700);
     ctx.font = `700 ${footerSize}px Arial, Helvetica, sans-serif`;
     ctx.fillStyle = '#f2f4f7';
@@ -328,42 +303,22 @@
   bindValue('number', 'number');
   bindValue('year', 'year');
   bindValue('keyword', 'keyword');
-  try { state.sender = (localStorage.getItem('einsatzbild-absender') || '').slice(0, 45); } catch (_) {}
-  $('sender').value = state.sender;
+  // Keine Vorbelegung: Der Absender muss bei jedem neuen Einsatz neu eingegeben werden.
+  $('sender').value = '';
   $('sender').addEventListener('input', (event) => {
-    state.sender = String(event.target.value).trim().slice(0, 45);
-    try { localStorage.setItem('einsatzbild-absender', state.sender); } catch (_) {}
+    state.sender = String(event.target.value).slice(0, 45);
     draw();
   });
   $('symbol').addEventListener('change', e => { state.symbol = e.target.checked; draw(); });
   nodes.neutralRed.addEventListener('click', () => setMode('neutral-red'));
   nodes.neutralDark.addEventListener('click', () => setMode('neutral-dark'));
-  $('suggest').addEventListener('click', () => {
-    const keyword = state.keyword.trim().toUpperCase();
-    const explanation = $('suggest-explanation');
-    const best = galleryPhotos.map(photo => ({photo, score: galleryScore(photo, keyword)}))
-      .sort((a, b) => b.score - a.score)[0];
-    if (best && best.score > 0) {
-      useGalleryPhoto(best.photo);
-      explanation.textContent = 'Passendes Galeriebild wird geladen: ' + photoLabel(best.photo.name);
-      return;
-    }
-    if (/^(B\d|BRAND|FEUER)/.test(keyword)) {
-      setMode('neutral-red');
-      explanation.textContent = 'Vorschlag: neutraler roter Hintergrund. Ein passendes, freigegebenes Einsatzfoto kannst du selbst wählen oder hochladen.';
-    } else if (/^(THL|VU|R\d|RETTUNG)/.test(keyword)) {
-      setMode('neutral-dark');
-      explanation.textContent = 'Vorschlag: neutraler Hintergrund. Ein passendes THL-Foto ist derzeit nicht hinterlegt.';
-    } else {
-      setMode('neutral-red');
-      explanation.textContent = 'Vorschlag: neutraler Hintergrund. Weitere freigegebene Fotos können später ergänzt werden.';
-    }
-    draw();
-  });
   $('zoom').addEventListener('input', (event) => { state.zoom = Number(event.target.value); draw(); });
+  $('pan-horizontal').addEventListener('input', (event) => { state.panX = Number(event.target.value); draw(); });
+  $('pan-vertical').addEventListener('input', (event) => { state.panY = Number(event.target.value); draw(); });
   $('reset-position').addEventListener('click', () => {
     state.panX = 0; state.panY = 0;
-    state.zoom = 1; $('zoom').value = '1'; draw();
+    state.zoom = 1; $('zoom').value = '1';
+    $('pan-horizontal').value = '0'; $('pan-vertical').value = '0'; draw();
   });
 
   const fileInput = $('photo-upload');
@@ -385,8 +340,8 @@
       state.galleryName = null;
       state.zoom = 1; state.panX = 0; state.panY = 0;
       $('zoom').value = '1';
+      $('pan-horizontal').value = '0'; $('pan-vertical').value = '0';
       setMode('photo');
-      $('suggest-explanation').textContent = 'Foto geladen. Prüfe vor dem Veröffentlichen Personen, Kennzeichen und Rechte.';
     };
     image.onerror = () => {
       URL.revokeObjectURL(url);
@@ -407,7 +362,8 @@
   // Drag the visible photo to reframe it without editing the source file.
   let drag = null;
   canvas.addEventListener('pointerdown', e => {
-    if (state.mode !== 'photo' || !photoBox()) return;
+    // Touch-Gesten bleiben dem Browser vorbehalten, damit man auf der Vorschau scrollen kann.
+    if (e.pointerType === 'touch' || state.mode !== 'photo' || !photoBox()) return;
     drag = { x: e.clientX, y: e.clientY, panX: state.panX, panY: state.panY };
     canvas.setPointerCapture(e.pointerId);
   });
@@ -420,6 +376,8 @@
     const dy = (e.clientY - drag.y) / rect.height;
     if (box.availX > 0) state.panX = clamp(drag.panX - dx * (2 * box.cropW / box.availX), -1, 1);
     if (box.availY > 0) state.panY = clamp(drag.panY - dy * (2 * box.cropH / box.availY), -1, 1);
+    $('pan-horizontal').value = String(state.panX);
+    $('pan-vertical').value = String(state.panY);
     draw();
   });
   ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(name => canvas.addEventListener(name, () => { drag = null; }));
@@ -428,6 +386,23 @@
     if (!String(state.number).trim() || !String(state.keyword).trim()) {
       window.alert('Bitte Einsatznummer und Alarmstichwort eingeben.');
       (!String(state.number).trim() ? $('number') : $('keyword')).focus();
+      return false;
+    }
+    if (!String(state.sender).trim()) {
+      window.alert('Bitte die Feuerwehr bzw. den Ort eingeben.');
+      $('sender').focus();
+      return false;
+    }
+    const year = Number(state.year);
+    if (!Number.isInteger(year) || year < 2000 || year > 2100) {
+      window.alert('Bitte ein gültiges Jahr eingeben.');
+      $('year').focus();
+      return false;
+    }
+    const number = Number(state.number);
+    if (!Number.isInteger(number) || number < 1 || number > 9999) {
+      window.alert('Bitte eine gültige Einsatznummer eingeben.');
+      $('number').focus();
       return false;
     }
     if (state.mode === 'photo' && (!state.image || !state.image.complete)) {
@@ -439,7 +414,7 @@
     return true;
   }
   function exportName(type) {
-    return `Feuerwehr-Einsatz-${String(state.number || '000').replace(/[^\d]/g,'')}-${String(state.year || '').replace(/[^\d]/g,'')}.${type === 'image/png' ? 'png' : 'jpg'}`;
+    return `Einsatz-${String(state.number || '000').replace(/[^\d]/g,'')}-${String(state.year || '').replace(/[^\d]/g,'')}.png`;
   }
   function canvasBlob(type) {
     draw();
@@ -460,31 +435,40 @@
     const blob = await canvasBlob(type);
     if (!blob) { window.alert('Der Bildexport hat nicht funktioniert.'); return; }
     saveBlob(blob, exportName(type));
-    $('export-message').textContent = 'Bild erstellt. Auf dem iPhone findest du Downloads in Safari bzw. in der Dateien-App.';
+    $('export-message').textContent = 'PNG gespeichert. Auf dem iPhone findest du die Datei unter Downloads in der Dateien-App.';
+  }
+  // PNG synchron erzeugen, damit Safari die Teilen-Aktion als direkten Klick erkennt.
+  function pngBlobForShare() {
+    draw();
+    const data = canvas.toDataURL('image/png');
+    const base64 = data.slice(data.indexOf(',') + 1);
+    const binary = atob(base64);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    return new Blob([bytes], {type:'image/png'});
   }
   async function shareImage() {
     if (!exportReady()) return;
-    const type = 'image/jpeg';
-    const blob = await canvasBlob(type);
-    if (!blob) { window.alert('Der Bildexport hat nicht funktioniert.'); return; }
-    const name = exportName(type);
-    const file = new File([blob], name, { type });
+    let blob;
+    try { blob = pngBlobForShare(); }
+    catch (_) { window.alert('Das Bild konnte nicht erstellt werden.'); return; }
+    const name = exportName('image/png');
+    const file = new File([blob], name, {type:'image/png'});
     try {
-      if (navigator.share && navigator.canShare && navigator.canShare({files:[file]})) {
-        await navigator.share({ files: [file] });
-        $('export-message').textContent = 'Teilen-Menü geöffnet. Falls verfügbar, „Bild sichern“ auswählen.';
+      if (navigator.share && (!navigator.canShare || navigator.canShare({files:[file]}))) {
+        await navigator.share({files:[file],title:'Einsatzbild'});
+        $('export-message').textContent = 'Im Teilen-Menü kannst du das Bild versenden oder in Fotos sichern.';
       } else {
         saveBlob(blob, name);
-        $('export-message').textContent = 'Das Teilen-Menü wird hier nicht unterstützt. Das JPG wurde heruntergeladen.';
+        $('export-message').textContent = 'Das Teilen-Menü ist hier nicht verfügbar. Die PNG-Datei wurde heruntergeladen.';
       }
     } catch (err) {
       if (err && err.name === 'AbortError') return;
       saveBlob(blob, name);
-      $('export-message').textContent = 'Der direkte Export war nicht möglich. Das JPG wurde stattdessen heruntergeladen.';
+      $('export-message').textContent = 'Teilen war nicht möglich. Die PNG-Datei wurde heruntergeladen.';
     }
   }
-  $('share-jpg').addEventListener('click', shareImage);
-  $('download-jpg').addEventListener('click', () => download('image/jpeg'));
+  $('share-png').addEventListener('click', shareImage);
   $('download-png').addEventListener('click', () => download('image/png'));
   loadGallery();
   draw();

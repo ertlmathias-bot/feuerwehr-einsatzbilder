@@ -2,68 +2,118 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow, noarchive">
-  <meta name="theme-color" content="#12161e">
-  <meta name="description" content="Einsatzbilder im Browser gestalten und als Instagram-Grafik herunterladen.">
-  <title>Einsatzbild-Generator</title>
-  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxMyIgZmlsbD0iI2M5MTUyMiIvPjxwYXRoIGQ9Ik0xNiAxNWgyOXY3SDI0djloMTh2N0gyNHYxM2gtOHoiIGZpbGw9IiNmZmYiLz48L3N2Zz4K" type="image/svg+xml">
-  <style>:root{--ink:#141b26;--muted:#657181;--border:#dfe4eb;--red:#c91522;--red-dark:#a80817;--bg:#f3f5f8;--surface:#fff;--radius:16px}
-*{box-sizing:border-box}html{font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg)}body{margin:0}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid #4a90e2;outline-offset:3px}p,h1,h2,h3{margin:0}h1{font-size:23px;line-height:1.2}h2{font-size:29px;line-height:1.18;letter-spacing:-.8px}h3{font-size:18px;line-height:1.2}p{line-height:1.5} .site-header{background:#151a22;color:white;border-bottom:4px solid var(--red)}.header-inner{width:min(1230px,calc(100% - 40px));margin:auto;display:flex;align-items:center;gap:18px;min-height:92px}.brand-mark{width:51px;height:53px;display:flex;align-items:center;justify-content:center;gap:5px;background:rgba(255,255,255,.08);border-radius:11px;flex-shrink:0}.brand-mark span{height:24px;width:6px;background:#fff;transform:skew(-18deg)}.brand-mark span:last-child{background:#e22330}.eyebrow{letter-spacing:1.4px;font-size:10px;font-weight:700;color:#b6bfcb;margin-bottom:6px}.header-pill{font-size:12px;color:#cfd6df;border:1px solid #424a58;border-radius:50px;padding:9px 13px;margin-left:auto;white-space:nowrap}.page{max-width:1230px;padding:0 20px;margin:auto}.intro{padding:37px 0 29px}.intro-kicker{color:var(--red);font-weight:800;letter-spacing:1.25px;font-size:11px;margin-bottom:11px}.intro>p:last-child{color:var(--muted);margin-top:10px;max-width:600px;font-size:15px}.app-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:24px;align-items:start}.panel{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:26px;box-shadow:0 5px 22px rgba(35,49,73,.04)}.panel-heading{display:flex;align-items:center;gap:14px;margin-bottom:18px}.panel-heading p{font-size:13px;color:var(--muted);margin-top:4px}.step{font-size:12px;background:#fff0f1;color:var(--red);font-weight:800;border-radius:10px;display:grid;place-items:center;width:40px;height:40px;flex-shrink:0}.fields-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{display:flex;flex-direction:column;gap:8px}.field span{font-size:13px;font-weight:700;color:#344053}.field input{width:100%;min-height:46px;padding:11px 13px;border:1px solid #ccd3de;border-radius:9px;background:white;color:#1e2a39;outline-offset:2px}.field input:focus{border-color:var(--red)}.field.wide{grid-column:1/-1}.section-rule{border-top:1px solid #e7eaf0;margin:27px 0}.asset-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-bottom:14px}.asset{border:2px solid #e0e4e9;background:#f9fafc;border-radius:11px;overflow:hidden;padding:0;text-align:left;color:#273243}.asset.active{border-color:var(--red);box-shadow:0 0 0 2px rgba(201,21,34,.10)}.asset img,.asset-swatch{width:100%;height:75px;object-fit:cover;display:block}.asset-swatch.red{background:linear-gradient(125deg,#1b2028 23%,#9d1521 23%,#bb1928 50%,#2c3039 50%)}.asset-swatch.dark{background:linear-gradient(135deg,#171c23 25%,#2f3c4b 25%,#202936 62%,#ca1a2b 62%,#ca1a2b 65%,#121821 65%)}.asset>span:last-child{display:block;padding:9px 8px;font-size:12px;font-weight:700}.upload-zone{border:1px dashed #acb8c9;background:#f9fbfe;border-radius:11px;transition:.15s}.upload-zone.dragover{border-color:var(--red);background:#fff2f3}.upload-zone>input{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;clip-path:inset(50%)}.upload-label{display:flex;gap:12px;align-items:center;padding:18px 15px;cursor:pointer}.upload-icon{display:grid;place-items:center;border-radius:10px;width:40px;height:40px;background:#e8ecf2;color:#2b3b50;font-size:27px;flex-shrink:0}.upload-label strong{display:block;font-size:14px}.upload-label small{display:block;color:var(--muted);font-size:12px;line-height:1.45;margin-top:4px}.suggest-row{display:flex;align-items:center;gap:12px;margin-top:15px}.small-button{font-size:13px;white-space:nowrap;background:#fff;border:1px solid #cbd2dc;color:#293547;border-radius:8px;padding:10px 12px;font-weight:700}.small-button:hover{background:#f3f5f8}.suggest-row p{font-size:12px;color:var(--muted)}.zoom-row{display:flex;align-items:center;gap:12px;margin-top:21px}.zoom-row label{font-size:13px;font-weight:700;white-space:nowrap}.zoom-row input{flex:1;min-width:60px;accent-color:var(--red)}.text-button{border:none;background:none;color:var(--red-dark);font-size:12px;font-weight:700;padding:4px;text-align:right}.hint{color:#738091;font-size:12px;margin-top:8px}.checkline{display:flex;gap:11px;align-items:flex-start;background:#fafbfc;border:1px solid #e4e9ef;padding:15px;border-radius:10px;cursor:pointer}.checkline input{accent-color:var(--red);width:18px;height:18px;margin-top:2px;flex:none}.checkline strong{display:block;font-size:14px}.checkline small{color:var(--muted);font-size:12px;display:block;line-height:1.5;margin-top:5px}.download-area{margin-top:23px;display:grid;gap:10px}.primary-button{background:var(--red);color:white;border:1px solid var(--red);border-radius:10px;font-weight:800;min-height:53px;padding:13px 14px}.primary-button:hover{background:var(--red-dark)}.primary-button span{margin-left:6px}.secondary-button{border:1px solid #cbd2dc;border-radius:10px;background:white;font-weight:700;color:#2d3847;min-height:44px}.secondary-button:hover{background:#f5f6f8}.privacy{font-size:12px;color:var(--muted);line-height:1.55;margin-top:5px}.preview-column{padding:7px 0 0;position:sticky;top:16px}.preview-heading{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:17px}.preview-heading .intro-kicker{margin-bottom:5px}.preview-heading h3{font-size:19px}.aspect-pill{font-size:11px;color:#536070;background:#e7ebf0;padding:7px 9px;border-radius:40px;white-space:nowrap}.canvas-wrap{max-width:100%;margin:auto;display:flex;justify-content:center;background:#141a23;border-radius:11px;overflow:hidden;box-shadow:0 9px 40px rgba(28,44,64,.15)}canvas{display:block;aspect-ratio:4/5;width:100%;height:auto;touch-action:none;cursor:grab}canvas:active{cursor:grabbing}.preview-note{display:flex;gap:9px;padding:14px 6px;color:#6d7989;font-size:12px;align-items:flex-start}.note-dot{width:7px;height:7px;min-width:7px;background:#c51c29;border-radius:50%;margin-top:5px}.page-footer{display:flex;justify-content:space-between;gap:16px;padding:33px 0 28px;color:#7d8793;font-size:12px}
-@media(max-width:850px){.app-grid{grid-template-columns:1fr}.preview-column{position:static;order:-1;max-width:560px;width:100%;margin:auto}.panel{max-width:700px;width:100%;margin:auto}.header-pill{display:none}.intro{padding:25px 0 20px}h2{font-size:24px}}
-@media(max-width:500px){.page{padding:0 13px}.header-inner{width:calc(100% - 26px);min-height:77px;gap:12px}.brand-mark{width:43px;height:45px}.eyebrow{font-size:9px}h1{font-size:19px}.panel{padding:17px;border-radius:12px}.fields-grid{gap:11px}.suggest-row{align-items:flex-start;flex-direction:column}.zoom-row{flex-wrap:wrap}.zoom-row label{width:100%}.zoom-row input{flex:1}.asset img,.asset-swatch{height:62px}.asset>span:last-child{font-size:11px;padding:8px 6px}.page-footer{display:block}.page-footer p + p{margin-top:4px}}
-</style>
-  
+  <meta name="theme-color" content="#151c26">
+  <meta name="description" content="Einsatzbilder im Browser gestalten und direkt speichern.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Einsatzbild erstellen</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23151c26'/%3E%3Cpath d='M17 16h8v32h-8zm12 0h8v32h-8zm12 0h8v32h-8z' fill='%23fff'/%3E%3Cpath d='M41 16h8v32h-8z' fill='%23dc2031'/%3E%3C/svg%3E">
+  <style>
+  :root{--ink:#16212d;--muted:#667587;--line:#e4e9ed;--red:#c41727;--red-hover:#a7101f;--page:#f5f6f8;--white:#fff;--radius:15px}
+  *{box-sizing:border-box}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--page);-webkit-text-size-adjust:100%}body{margin:0}p,h1,h2,h3{margin:0}p{line-height:1.45}button,input,summary{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #327fe8;outline-offset:2px}button:disabled{opacity:.5;cursor:not-allowed}
+  .site-header{background:#151c26;color:#fff;border-bottom:3px solid var(--red)}
+  .header-inner{max-width:1120px;margin:auto;padding:17px 24px;display:flex;align-items:center;gap:14px;min-height:73px}
+  .brand-mark{width:42px;height:42px;border-radius:10px;background:#303a46;display:flex;align-items:center;justify-content:center;gap:4px;flex-shrink:0}
+  .brand-mark span{height:21px;width:5px;background:white;transform:skew(-18deg)}.brand-mark span:last-child{background:#ec3040}
+  .eyebrow{font-size:10px;color:#b5bfce;font-weight:700;letter-spacing:.14em;margin-bottom:3px}.header-inner h1{font-size:21px;letter-spacing:-.4px;line-height:1.16}
+  .page{max-width:1120px;padding:24px 20px 32px;margin:auto}.work-title{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-bottom:19px}
+  .work-title h2{font-size:19px;line-height:1.3;letter-spacing:-.35px}.format{border-radius:20px;background:#e7eaef;color:#546171;font-size:11px;padding:7px 11px;white-space:nowrap;font-weight:650}
+  .app-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start}
+  .panel{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 6px 20px rgba(18,36,54,.025);padding:23px}
+  .panel-heading{display:flex;align-items:center;gap:11px;margin-bottom:17px}.panel-heading h3{font-size:17px;letter-spacing:-.25px}
+  .step{width:28px;height:28px;background:#fcebed;color:var(--red);font-size:12px;font-weight:800;display:grid;place-items:center;border-radius:8px;flex-shrink:0}
+  .fields-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:13px}
+  .field{display:flex;flex-direction:column;gap:7px;min-width:0}.field.wide{grid-column:1/-1}
+  .field span{font-size:13px;color:#354357;font-weight:700}.field input{width:100%;border:1px solid #cbd3dd;background:#fff;color:#142335;border-radius:9px;padding:12px 13px;min-height:47px;font-size:16px}
+  .field input:focus{border-color:var(--red);outline-color:#d9a0a5}.field input::placeholder{color:#8d99a7}
+  .section-rule{border-top:1px solid var(--line);margin:22px 0}.asset-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-bottom:11px}
+  .asset{border:2px solid var(--line);background:#fff;border-radius:10px;overflow:hidden;padding:0;text-align:left;color:var(--ink);transition:border-color .15s}
+  .asset.active{border-color:var(--red);box-shadow:0 0 0 2px rgba(196,23,39,.08)}.asset img,.asset-swatch{width:100%;height:67px;display:block;object-fit:cover}
+  .asset-swatch.red{background:linear-gradient(130deg,#282733 20%,#a91629 20%,#cd1e31 53%,#30323c 53%)}
+  .asset-swatch.dark{background:linear-gradient(135deg,#162334 25%,#39495a 25%,#1c2734 60%,#ad1c2a 60%,#ad1c2a 63%,#18212c 63%)}
+  .asset>span:last-child{display:block;font-size:12px;font-weight:700;padding:9px 8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .upload-zone{border:1.5px dashed #9caebe;background:#f8fafd;border-radius:10px;margin-bottom:12px}.upload-zone.dragover{border-color:var(--red);background:#fff1f2}
+  .upload-zone input{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;clip-path:inset(50%)}
+  .upload-label{display:flex;align-items:center;gap:13px;cursor:pointer;padding:13px 14px}.upload-icon{display:grid;place-items:center;border-radius:9px;background:#e7ebf0;color:#273549;font-size:25px;width:38px;height:38px;flex-shrink:0}
+  .upload-label strong{font-size:14px;display:block}.upload-label small{display:block;color:var(--muted);font-size:12px;margin-top:3px;line-height:1.3}
+  .gallery-more{margin:0 0 13px}.hint{font-size:12px;line-height:1.4;color:#718093}
+  .small-button{border:1px solid #d2d9e1;color:#334354;background:#fff;font-size:13px;padding:10px 12px;border-radius:8px;font-weight:700}
+  .small-button:hover,.secondary-button:hover{background:#f4f6f8}.suggest-row{display:flex;align-items:flex-start;gap:9px;margin:12px 0}.suggest-row p{font-size:12px;color:var(--muted);flex:1;padding-top:6px}
+  .checkline{display:flex;gap:11px;align-items:center;padding:13px;background:#fafbfc;border-radius:9px;border:1px solid #e5eaf0;cursor:pointer;margin-top:8px}
+  .checkline input{width:20px;height:20px;flex-shrink:0;accent-color:var(--red);margin:0}.checkline strong{font-size:13px;display:block}.checkline small{font-size:11px;color:var(--muted);display:block;margin-top:3px;line-height:1.25}
+  .photo-tools{background:#f8fafc;border:1px solid #e6ebf1;border-radius:9px;padding:12px;margin-top:11px}
+  .zoom-row{display:flex;gap:10px;align-items:center}.zoom-row label{font-size:12px;font-weight:700;flex-shrink:0}.zoom-row input{flex:1;min-width:65px;accent-color:var(--red)}
+  .text-button{border:none;background:none;color:#a91724;font-weight:700;font-size:12px}.photo-tools .hint{margin-top:9px}
+  .more-settings{border-top:1px solid var(--line);margin-top:19px;padding-top:15px}.more-settings summary{cursor:pointer;color:#425266;font-size:13px;font-weight:700;list-style:none;display:flex;align-items:center;gap:7px;min-height:28px}
+  .more-settings summary::-webkit-details-marker{display:none}.more-settings summary:before{content:'+';font-size:20px;font-weight:400;line-height:1}.more-settings[open] summary:before{content:'−'}
+  .more-content{display:grid;gap:13px;padding-top:14px}.more-content .field small{font-size:11px;color:var(--muted);line-height:1.4}
+  .download-area{display:grid;gap:9px;margin-top:19px}.primary-button{border:1px solid var(--red);background:var(--red);color:#fff;font-size:15px;font-weight:800;min-height:52px;border-radius:9px;padding:12px 15px}
+  .primary-button:hover{background:var(--red-hover)}.secondary-button{background:#fff;color:#293a4c;border:1px solid #cdd5df;border-radius:9px;font-size:14px;min-height:44px;font-weight:700}
+  .download-sub{display:grid;grid-template-columns:1fr 1fr;gap:9px}.privacy{font-size:11px;color:#7a8797;line-height:1.4;margin-top:2px}#export-message{font-size:12px;color:#556578}
+  .preview-column{position:sticky;top:16px}.preview-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:11px}.preview-heading h3{font-size:17px;letter-spacing:-.3px}.preview-heading span{font-size:11px;color:var(--muted)}
+  .canvas-wrap{width:100%;max-width:500px;margin:auto;background:#17212e;border-radius:11px;overflow:hidden;box-shadow:0 12px 35px rgba(17,33,55,.13)}
+  canvas{display:block;width:100%;height:auto;aspect-ratio:4/5;touch-action:none;cursor:grab}canvas:active{cursor:grabbing}.preview-note{margin-top:11px;display:flex;align-items:flex-start;gap:7px;color:#6e7a8a;font-size:11px;line-height:1.4}.note-dot{width:6px;height:6px;margin-top:5px;flex-shrink:0;background:var(--red);border-radius:100%}
+  .page-footer{padding:28px 2px 0;text-align:center;font-size:11px;color:#778395}
+  @media(max-width:800px){.app-grid{grid-template-columns:1fr;gap:21px}.page{max-width:590px;padding-top:18px}.preview-column{position:static}.preview-column .canvas-wrap{max-width:420px}}
+  @media(max-width:500px){.header-inner{min-height:64px;padding:12px 15px;gap:11px}.brand-mark{width:37px;height:37px}.brand-mark span{height:19px}.header-inner h1{font-size:18px}.eyebrow{font-size:9px}.page{padding:15px 12px 30px}.work-title{margin-bottom:12px}.work-title h2{font-size:17px}.format{font-size:10px;padding:6px 9px}.panel{padding:17px 14px;border-radius:12px}.panel-heading{margin-bottom:15px}.fields-grid{gap:11px}.asset img,.asset-swatch{height:70px}.asset>span:last-child{font-size:11px}.preview-heading h3{font-size:16px}.suggest-row{flex-direction:column;gap:3px}.suggest-row p{padding:0}.canvas-wrap{max-width:380px}.page-footer{padding-top:19px}}
+  </style>
 </head>
 <body>
 <header class="site-header">
-  <div class="header-inner">
-    <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
-    <div><p class="eyebrow">EINSATZBILDER GESTALTEN</p><h1>Einsatzbild-Generator</h1></div>
-    <span class="header-pill">Eure Einsatzvorlage</span>
-  </div>
+ <div class="header-inner">
+   <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+   <div><p class="eyebrow">EINSATZBILDER</p><h1>Einsatzbild erstellen</h1></div>
+ </div>
 </header>
 <main class="page">
-  <section class="intro">
-    <p class="intro-kicker">FÜR INSTAGRAM & CO.</p>
-    <h2>Foto wählen. Einsatz eintragen. Fertig.</h2>
-    <p>Ein einheitliches Design für eure Einsatzmeldungen. Immer derselbe Link, mit einer zentral aktualisierten Bildauswahl. Ohne Anmeldung und ohne ChatGPT.</p>
-  </section>
-  <div class="app-grid">
-    <section class="panel editor" aria-labelledby="editor-heading">
-      <div class="panel-heading"><span class="step">01</span><div><h3 id="editor-heading">Einsatzdaten</h3><p>Diese Angaben erscheinen direkt im Bild.</p></div></div>
-      <div class="fields-grid">
-        <label class="field"><span>Einsatznummer</span><input id="number" type="number" min="1" max="9999" value="50" inputmode="numeric"></label>
-        <label class="field"><span>Jahr</span><input id="year" type="number" min="2000" max="2100" value="2026" inputmode="numeric"></label>
-        <label class="field wide"><span>Alarmstichwort / Textzeile</span><input id="keyword" type="text" value="B3" maxlength="65" placeholder="z. B. B3, THL 1 oder Brandmeldeanlage"></label>
-        <label class="field wide"><span>Ortsname / Absender (optional)</span><input id="sender" type="text" value="" maxlength="45" placeholder="z. B. Musterstadt" autocomplete="off"><small style="font-size:12px;color:#657181">Wird nur auf diesem Gerät gespeichert. Ohne Ortsname bleibt die Grafik neutral.</small></label>
-      </div>
-      <div class="section-rule"></div>
-      <div class="panel-heading"><span class="step">02</span><div><h3>Hintergrundbild</h3><p>Wähle ein freigegebenes Motiv oder lade ein eigenes Foto hoch. Das Foto bleibt original.</p></div></div>
-      <div class="asset-grid" id="gallery-grid" role="group" aria-label="Hintergrund auswählen">
-        <button class="asset" id="preset-neutral-red" type="button" aria-pressed="false"><span class="asset-swatch red" aria-hidden="true"></span><span>Neutral · Rot</span></button>
-        <button class="asset active" id="preset-neutral-dark" type="button" aria-pressed="true"><span class="asset-swatch dark" aria-hidden="true"></span><span>Neutral · Dunkel</span></button>
-      </div>
-      <p class="hint" id="gallery-status" role="status" aria-live="polite">Zusätzliche Feuerwehrbilder werden geladen …</p>
-      <div class="upload-zone" id="drop-zone">
-        <input type="file" id="photo-upload" accept="image/png,image/jpeg,image/webp,image/heic,image/heif" aria-label="Eigenes Foto hochladen">
-        <label for="photo-upload" class="upload-label"><span class="upload-icon" aria-hidden="true">+</span><span><strong>Eigenes Einsatzfoto auswählen</strong><small>Foto antippen oder hierher ziehen · JPG, PNG, WebP, je nach Gerät HEIC</small></span></label>
-      </div>
-      <div class="suggest-row"><button id="suggest" class="small-button" type="button">Hintergrund vorschlagen</button><p id="suggest-explanation" role="status" aria-live="polite">Wähle ein passendes Bild aus der Galerie oder nutze einen neutralen Hintergrund.</p></div>
-      <div class="zoom-row"><label for="zoom">Foto-Zoom</label><input id="zoom" type="range" min="1" max="2.4" step="0.01" value="1"><button id="reset-position" class="text-button" type="button">Position zurücksetzen</button></div>
-      <p class="hint">Tipp: Bei einem Foto kannst du die Vorschau mit dem Finger oder der Maus verschieben.</p>
-      <div class="section-rule"></div>
-      <div class="panel-heading"><span class="step">03</span><div><h3>Kennzeichnung</h3><p>Optional, wenn das Foto nicht den tatsächlichen Einsatz zeigt.</p></div></div>
-      <label class="checkline"><input id="symbol" type="checkbox"><span><strong>„SYMBOLBILD“ unten rechts anzeigen</strong><small>Bei einem älteren oder allgemeinen Einsatzfoto sinnvoll.</small></span></label>
-      <div class="download-area"><button class="primary-button" id="share-jpg" type="button">Bild auf dem Handy teilen / sichern <span aria-hidden="true">↗</span></button><button class="secondary-button" id="download-jpg" type="button">JPG herunterladen ↓</button><button class="secondary-button" id="download-png" type="button">PNG herunterladen ↓</button><p class="privacy">1080 × 1350 Pixel (4:5). Auf iPhones im Teilen-Menü „Bild sichern“ wählen, wenn die Option angeboten wird. Deine eigenen Fotos werden nur auf deinem Gerät verarbeitet und nicht hochgeladen.</p><p id="export-message" role="status" aria-live="polite" style="font-size:13px;color:#526072"></p></div>
-    </section>
-    <section class="preview-column" aria-labelledby="preview-heading">
-      <div class="preview-heading"><div><p class="intro-kicker">LIVE-VORSCHAU</p><h3 id="preview-heading">So sieht dein Beitrag aus</h3></div><span class="aspect-pill">4:5 · 1080 × 1350</span></div>
-      <div class="canvas-wrap"><canvas id="preview" width="1080" height="1350" aria-label="Vorschau des Einsatzbilds" role="img"></canvas></div>
-      <div class="preview-note"><span class="note-dot" aria-hidden="true"></span><p>Fotos und Texte lassen sich für jeden Einsatz austauschen. Der Absender wird nur auf deinem Gerät gespeichert.</p></div>
-    </section>
-  </div>
-  <footer class="page-footer"><p>Einsatzbild-Generator · Ohne Anmeldung · Fotos werden lokal verarbeitet</p><p>Keine KI-Bildgenerierung · Foto wird lokal bearbeitet · Nur freigegebene Bilder veröffentlichen</p></footer>
+ <div class="work-title"><h2>Neuer Einsatz</h2><span class="format">Instagram · 4:5</span></div>
+ <div class="app-grid">
+   <section class="panel editor" aria-labelledby="editor-heading">
+     <div class="panel-heading"><span class="step">1</span><h3 id="editor-heading">Einsatzdaten</h3></div>
+     <div class="fields-grid">
+       <label class="field"><span>Einsatznummer</span><input id="number" type="number" min="1" max="9999" value="" placeholder="z. B. 51" inputmode="numeric" autocomplete="off"></label>
+       <label class="field"><span>Jahr</span><input id="year" type="number" min="2000" max="2100" value="2026" inputmode="numeric"></label>
+       <label class="field wide"><span>Alarmstichwort</span><input id="keyword" type="text" value="" maxlength="65" placeholder="z. B. B3 oder THL 1" autocomplete="off"></label>
+     </div>
+     <div class="section-rule"></div>
+     <div class="panel-heading"><span class="step">2</span><h3>Foto auswählen</h3></div>
+     <div class="upload-zone" id="drop-zone">
+       <input type="file" id="photo-upload" accept="image/png,image/jpeg,image/webp,image/heic,image/heif" aria-label="Eigenes Foto auswählen">
+       <label for="photo-upload" class="upload-label"><span class="upload-icon" aria-hidden="true">+</span><span><strong>Eigenes Foto verwenden</strong><small>Aus der Fotomediathek auswählen</small></span></label>
+     </div>
+     <div class="asset-grid" id="gallery-grid" role="group" aria-label="Hintergrund auswählen">
+       <button class="asset" id="preset-neutral-red" type="button" aria-pressed="false"><span class="asset-swatch red" aria-hidden="true"></span><span>Rot</span></button>
+       <button class="asset active" id="preset-neutral-dark" type="button" aria-pressed="true"><span class="asset-swatch dark" aria-hidden="true"></span><span>Dunkel</span></button>
+     </div>
+     <p class="hint gallery-more" id="gallery-status" role="status" aria-live="polite">Weitere Bilder werden geladen …</p>
+     <div class="suggest-row"><button id="suggest" class="small-button" type="button">Passendes Bild vorschlagen</button><p id="suggest-explanation" role="status" aria-live="polite"></p></div>
+     <div class="photo-tools" id="photo-tools" hidden>
+       <div class="zoom-row"><label for="zoom">Fotoausschnitt</label><input id="zoom" type="range" min="1" max="2.4" step="0.01" value="1"><button id="reset-position" class="text-button" type="button">Zurücksetzen</button></div>
+       <p class="hint">Foto in der Vorschau mit dem Finger verschieben.</p>
+     </div>
+     <label class="checkline"><input id="symbol" type="checkbox" checked><span><strong>Symbolbild kennzeichnen</strong><small>Standardmäßig aktiviert · bei echtem Einsatzfoto abwählen</small></span></label>
+     <div class="download-area">
+       <button class="primary-button" id="share-jpg" type="button">Bild speichern oder teilen ↗</button>
+       <button class="secondary-button" id="download-jpg" type="button">Als JPG herunterladen</button>
+       <p id="export-message" role="status" aria-live="polite"></p>
+     </div>
+     <details class="more-settings">
+       <summary>Weitere Einstellungen</summary>
+       <div class="more-content">
+         <label class="field"><span>Feuerwehr / Ort (optional)</span><input id="sender" type="text" value="" maxlength="45" placeholder="z. B. Musterstadt" autocomplete="off"><small>Wird nur auf diesem Gerät gespeichert. Ohne Eingabe bleibt das Design neutral.</small></label>
+         <button class="secondary-button" id="download-png" type="button">Als PNG herunterladen</button>
+         <p class="privacy">Nur freigegebene Bilder verwenden. Eigene Fotos bleiben bei der Bearbeitung auf deinem Gerät. Zentral hinterlegte Galeriebilder sind öffentlich abrufbar.</p>
+       </div>
+     </details>
+   </section>
+   <section class="preview-column" aria-labelledby="preview-heading">
+     <div class="preview-heading"><h3 id="preview-heading">Vorschau</h3><span>1080 × 1350 px</span></div>
+     <div class="canvas-wrap"><canvas id="preview" width="1080" height="1350" aria-label="Vorschau des Einsatzbildes. Bei einem Foto kann der Ausschnitt durch Ziehen verändert werden." role="img"></canvas></div>
+     <div class="preview-note"><span class="note-dot" aria-hidden="true"></span><p>Die Grafik wird lokal erstellt. Das ausgewählte Foto wird nicht automatisch hochgeladen.</p></div>
+   </section>
+ </div>
+ <footer class="page-footer">Einsatzbild-Generator · Nur zur Veröffentlichung freigegebene Bilder verwenden</footer>
 </main>
 <script>
 (() => {
@@ -74,7 +124,7 @@
   const W = canvas.width;
   const H = canvas.height;
   const state = {
-    number: '50', year: '2026', keyword: 'B3', symbol: false,
+    number: '', year: String(new Date().getFullYear()), keyword: '', symbol: true,
     mode: 'neutral-dark', image: null, zoom: 1, panX: 0, panY: 0, sender: '',
     ready: false, uploadUrl: null, source: 'neutral', galleryName: null
   };
@@ -99,6 +149,7 @@
     });
     $('zoom').disabled = mode !== 'photo';
     $('reset-position').disabled = mode !== 'photo';
+    $('photo-tools').hidden = mode !== 'photo';
     draw();
   }
   // Die Galerie wird automatisch aus dem GitHub-Ordner "bilder" eingelesen.
@@ -121,7 +172,7 @@
       state.panY = 0;
       $('zoom').value = '1';
       setMode('photo');
-      $('suggest-explanation').textContent = 'Galeriefoto „' + photoLabel(photo.name) + '“ gewählt. Bitte „Symbolbild“ bei Bedarf aktivieren.';
+      $('suggest-explanation').textContent = 'Galeriefoto „' + photoLabel(photo.name) + '“ ausgewählt.';
     };
     img.onerror = () => { alert('Das Galeriebild konnte gerade nicht geladen werden. Bitte ein anderes Foto wählen.'); };
     img.src = galleryPhotoUrl(photo);
@@ -273,6 +324,7 @@
       draw();
     });
   }
+  $('year').value = state.year;
   bindValue('number', 'number');
   bindValue('year', 'year');
   bindValue('keyword', 'keyword');
@@ -334,7 +386,7 @@
       state.zoom = 1; state.panX = 0; state.panY = 0;
       $('zoom').value = '1';
       setMode('photo');
-      $('suggest-explanation').textContent = 'Eigenes Foto geladen. Prüfe vor dem Veröffentlichen Personen, Kennzeichen und Rechte.';
+      $('suggest-explanation').textContent = 'Foto geladen. Prüfe vor dem Veröffentlichen Personen, Kennzeichen und Rechte.';
     };
     image.onerror = () => {
       URL.revokeObjectURL(url);
@@ -373,6 +425,11 @@
   ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(name => canvas.addEventListener(name, () => { drag = null; }));
 
   function exportReady() {
+    if (!String(state.number).trim() || !String(state.keyword).trim()) {
+      window.alert('Bitte Einsatznummer und Alarmstichwort eingeben.');
+      (!String(state.number).trim() ? $('number') : $('keyword')).focus();
+      return false;
+    }
     if (state.mode === 'photo' && (!state.image || !state.image.complete)) {
       window.alert('Bitte warte, bis das Hintergrundbild geladen ist.'); return false;
     }

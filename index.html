@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#12161e">
+  <meta name="description" content="Einsatzbilder im Browser gestalten und als Instagram-Grafik herunterladen.">
+  <title>Einsatzbild-Generator</title>
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxMyIgZmlsbD0iI2M5MTUyMiIvPjxwYXRoIGQ9Ik0xNiAxNWgyOXY3SDI0djloMTh2N0gyNHYxM2gtOHoiIGZpbGw9IiNmZmYiLz48L3N2Zz4K" type="image/svg+xml">
+  <style>:root{--ink:#141b26;--muted:#657181;--border:#dfe4eb;--red:#c91522;--red-dark:#a80817;--bg:#f3f5f8;--surface:#fff;--radius:16px}
+*{box-sizing:border-box}html{font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg)}body{margin:0}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid #4a90e2;outline-offset:3px}p,h1,h2,h3{margin:0}h1{font-size:23px;line-height:1.2}h2{font-size:29px;line-height:1.18;letter-spacing:-.8px}h3{font-size:18px;line-height:1.2}p{line-height:1.5} .site-header{background:#151a22;color:white;border-bottom:4px solid var(--red)}.header-inner{width:min(1230px,calc(100% - 40px));margin:auto;display:flex;align-items:center;gap:18px;min-height:92px}.brand-mark{width:51px;height:53px;display:flex;align-items:center;justify-content:center;gap:5px;background:rgba(255,255,255,.08);border-radius:11px;flex-shrink:0}.brand-mark span{height:24px;width:6px;background:#fff;transform:skew(-18deg)}.brand-mark span:last-child{background:#e22330}.eyebrow{letter-spacing:1.4px;font-size:10px;font-weight:700;color:#b6bfcb;margin-bottom:6px}.header-pill{font-size:12px;color:#cfd6df;border:1px solid #424a58;border-radius:50px;padding:9px 13px;margin-left:auto;white-space:nowrap}.page{max-width:1230px;padding:0 20px;margin:auto}.intro{padding:37px 0 29px}.intro-kicker{color:var(--red);font-weight:800;letter-spacing:1.25px;font-size:11px;margin-bottom:11px}.intro>p:last-child{color:var(--muted);margin-top:10px;max-width:600px;font-size:15px}.app-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:24px;align-items:start}.panel{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:26px;box-shadow:0 5px 22px rgba(35,49,73,.04)}.panel-heading{display:flex;align-items:center;gap:14px;margin-bottom:18px}.panel-heading p{font-size:13px;color:var(--muted);margin-top:4px}.step{font-size:12px;background:#fff0f1;color:var(--red);font-weight:800;border-radius:10px;display:grid;place-items:center;width:40px;height:40px;flex-shrink:0}.fields-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{display:flex;flex-direction:column;gap:8px}.field span{font-size:13px;font-weight:700;color:#344053}.field input{width:100%;min-height:46px;padding:11px 13px;border:1px solid #ccd3de;border-radius:9px;background:white;color:#1e2a39;outline-offset:2px}.field input:focus{border-color:var(--red)}.field.wide{grid-column:1/-1}.section-rule{border-top:1px solid #e7eaf0;margin:27px 0}.asset-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-bottom:14px}.asset{border:2px solid #e0e4e9;background:#f9fafc;border-radius:11px;overflow:hidden;padding:0;text-align:left;color:#273243}.asset.active{border-color:var(--red);box-shadow:0 0 0 2px rgba(201,21,34,.10)}.asset img,.asset-swatch{width:100%;height:75px;object-fit:cover;display:block}.asset-swatch.red{background:linear-gradient(125deg,#1b2028 23%,#9d1521 23%,#bb1928 50%,#2c3039 50%)}.asset-swatch.dark{background:linear-gradient(135deg,#171c23 25%,#2f3c4b 25%,#202936 62%,#ca1a2b 62%,#ca1a2b 65%,#121821 65%)}.asset>span:last-child{display:block;padding:9px 8px;font-size:12px;font-weight:700}.upload-zone{border:1px dashed #acb8c9;background:#f9fbfe;border-radius:11px;transition:.15s}.upload-zone.dragover{border-color:var(--red);background:#fff2f3}.upload-zone>input{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;clip-path:inset(50%)}.upload-label{display:flex;gap:12px;align-items:center;padding:18px 15px;cursor:pointer}.upload-icon{display:grid;place-items:center;border-radius:10px;width:40px;height:40px;background:#e8ecf2;color:#2b3b50;font-size:27px;flex-shrink:0}.upload-label strong{display:block;font-size:14px}.upload-label small{display:block;color:var(--muted);font-size:12px;line-height:1.45;margin-top:4px}.suggest-row{display:flex;align-items:center;gap:12px;margin-top:15px}.small-button{font-size:13px;white-space:nowrap;background:#fff;border:1px solid #cbd2dc;color:#293547;border-radius:8px;padding:10px 12px;font-weight:700}.small-button:hover{background:#f3f5f8}.suggest-row p{font-size:12px;color:var(--muted)}.zoom-row{display:flex;align-items:center;gap:12px;margin-top:21px}.zoom-row label{font-size:13px;font-weight:700;white-space:nowrap}.zoom-row input{flex:1;min-width:60px;accent-color:var(--red)}.text-button{border:none;background:none;color:var(--red-dark);font-size:12px;font-weight:700;padding:4px;text-align:right}.hint{color:#738091;font-size:12px;margin-top:8px}.checkline{display:flex;gap:11px;align-items:flex-start;background:#fafbfc;border:1px solid #e4e9ef;padding:15px;border-radius:10px;cursor:pointer}.checkline input{accent-color:var(--red);width:18px;height:18px;margin-top:2px;flex:none}.checkline strong{display:block;font-size:14px}.checkline small{color:var(--muted);font-size:12px;display:block;line-height:1.5;margin-top:5px}.download-area{margin-top:23px;display:grid;gap:10px}.primary-button{background:var(--red);color:white;border:1px solid var(--red);border-radius:10px;font-weight:800;min-height:53px;padding:13px 14px}.primary-button:hover{background:var(--red-dark)}.primary-button span{margin-left:6px}.secondary-button{border:1px solid #cbd2dc;border-radius:10px;background:white;font-weight:700;color:#2d3847;min-height:44px}.secondary-button:hover{background:#f5f6f8}.privacy{font-size:12px;color:var(--muted);line-height:1.55;margin-top:5px}.preview-column{padding:7px 0 0;position:sticky;top:16px}.preview-heading{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:17px}.preview-heading .intro-kicker{margin-bottom:5px}.preview-heading h3{font-size:19px}.aspect-pill{font-size:11px;color:#536070;background:#e7ebf0;padding:7px 9px;border-radius:40px;white-space:nowrap}.canvas-wrap{max-width:100%;margin:auto;display:flex;justify-content:center;background:#141a23;border-radius:11px;overflow:hidden;box-shadow:0 9px 40px rgba(28,44,64,.15)}canvas{display:block;aspect-ratio:4/5;width:100%;height:auto;touch-action:none;cursor:grab}canvas:active{cursor:grabbing}.preview-note{display:flex;gap:9px;padding:14px 6px;color:#6d7989;font-size:12px;align-items:flex-start}.note-dot{width:7px;height:7px;min-width:7px;background:#c51c29;border-radius:50%;margin-top:5px}.page-footer{display:flex;justify-content:space-between;gap:16px;padding:33px 0 28px;color:#7d8793;font-size:12px}
+@media(max-width:850px){.app-grid{grid-template-columns:1fr}.preview-column{position:static;order:-1;max-width:560px;width:100%;margin:auto}.panel{max-width:700px;width:100%;margin:auto}.header-pill{display:none}.intro{padding:25px 0 20px}h2{font-size:24px}}
+@media(max-width:500px){.page{padding:0 13px}.header-inner{width:calc(100% - 26px);min-height:77px;gap:12px}.brand-mark{width:43px;height:45px}.eyebrow{font-size:9px}h1{font-size:19px}.panel{padding:17px;border-radius:12px}.fields-grid{gap:11px}.suggest-row{align-items:flex-start;flex-direction:column}.zoom-row{flex-wrap:wrap}.zoom-row label{width:100%}.zoom-row input{flex:1}.asset img,.asset-swatch{height:62px}.asset>span:last-child{font-size:11px;padding:8px 6px}.page-footer{display:block}.page-footer p + p{margin-top:4px}}
+</style>
+  
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div><p class="eyebrow">EINSATZBILDER GESTALTEN</p><h1>Einsatzbild-Generator</h1></div>
+    <span class="header-pill">Eure Einsatzvorlage</span>
+  </div>
+</header>
+<main class="page">
+  <section class="intro">
+    <p class="intro-kicker">FÜR INSTAGRAM & CO.</p>
+    <h2>Foto wählen. Einsatz eintragen. Fertig.</h2>
+    <p>Ein einheitliches Design für eure Einsatzmeldungen. Immer derselbe Link, mit einer zentral aktualisierten Bildauswahl. Ohne Anmeldung und ohne ChatGPT.</p>
+  </section>
+  <div class="app-grid">
+    <section class="panel editor" aria-labelledby="editor-heading">
+      <div class="panel-heading"><span class="step">01</span><div><h3 id="editor-heading">Einsatzdaten</h3><p>Diese Angaben erscheinen direkt im Bild.</p></div></div>
+      <div class="fields-grid">
+        <label class="field"><span>Einsatznummer</span><input id="number" type="number" min="1" max="9999" value="50" inputmode="numeric"></label>
+        <label class="field"><span>Jahr</span><input id="year" type="number" min="2000" max="2100" value="2026" inputmode="numeric"></label>
+        <label class="field wide"><span>Alarmstichwort / Textzeile</span><input id="keyword" type="text" value="B3" maxlength="65" placeholder="z. B. B3, THL 1 oder Brandmeldeanlage"></label>
+        <label class="field wide"><span>Ortsname / Absender (optional)</span><input id="sender" type="text" value="" maxlength="45" placeholder="z. B. Musterstadt" autocomplete="off"><small style="font-size:12px;color:#657181">Wird nur auf diesem Gerät gespeichert. Ohne Ortsname bleibt die Grafik neutral.</small></label>
+      </div>
+      <div class="section-rule"></div>
+      <div class="panel-heading"><span class="step">02</span><div><h3>Hintergrundbild</h3><p>Wähle ein freigegebenes Motiv oder lade ein eigenes Foto hoch. Das Foto bleibt original.</p></div></div>
+      <div class="asset-grid" id="gallery-grid" role="group" aria-label="Hintergrund auswählen">
+        <button class="asset" id="preset-neutral-red" type="button" aria-pressed="false"><span class="asset-swatch red" aria-hidden="true"></span><span>Neutral · Rot</span></button>
+        <button class="asset active" id="preset-neutral-dark" type="button" aria-pressed="true"><span class="asset-swatch dark" aria-hidden="true"></span><span>Neutral · Dunkel</span></button>
+      </div>
+      <p class="hint" id="gallery-status" role="status" aria-live="polite">Zusätzliche Feuerwehrbilder werden geladen …</p>
+      <div class="upload-zone" id="drop-zone">
+        <input type="file" id="photo-upload" accept="image/png,image/jpeg,image/webp,image/heic,image/heif" aria-label="Eigenes Foto hochladen">
+        <label for="photo-upload" class="upload-label"><span class="upload-icon" aria-hidden="true">+</span><span><strong>Eigenes Einsatzfoto auswählen</strong><small>Foto antippen oder hierher ziehen · JPG, PNG, WebP, je nach Gerät HEIC</small></span></label>
+      </div>
+      <div class="suggest-row"><button id="suggest" class="small-button" type="button">Hintergrund vorschlagen</button><p id="suggest-explanation" role="status" aria-live="polite">Wähle ein passendes Bild aus der Galerie oder nutze einen neutralen Hintergrund.</p></div>
+      <div class="zoom-row"><label for="zoom">Foto-Zoom</label><input id="zoom" type="range" min="1" max="2.4" step="0.01" value="1"><button id="reset-position" class="text-button" type="button">Position zurücksetzen</button></div>
+      <p class="hint">Tipp: Bei einem Foto kannst du die Vorschau mit dem Finger oder der Maus verschieben.</p>
+      <div class="section-rule"></div>
+      <div class="panel-heading"><span class="step">03</span><div><h3>Kennzeichnung</h3><p>Optional, wenn das Foto nicht den tatsächlichen Einsatz zeigt.</p></div></div>
+      <label class="checkline"><input id="symbol" type="checkbox"><span><strong>„SYMBOLBILD“ unten rechts anzeigen</strong><small>Bei einem älteren oder allgemeinen Einsatzfoto sinnvoll.</small></span></label>
+      <div class="download-area"><button class="primary-button" id="share-jpg" type="button">Bild auf dem Handy teilen / sichern <span aria-hidden="true">↗</span></button><button class="secondary-button" id="download-jpg" type="button">JPG herunterladen ↓</button><button class="secondary-button" id="download-png" type="button">PNG herunterladen ↓</button><p class="privacy">1080 × 1350 Pixel (4:5). Auf iPhones im Teilen-Menü „Bild sichern“ wählen, wenn die Option angeboten wird. Deine eigenen Fotos werden nur auf deinem Gerät verarbeitet und nicht hochgeladen.</p><p id="export-message" role="status" aria-live="polite" style="font-size:13px;color:#526072"></p></div>
+    </section>
+    <section class="preview-column" aria-labelledby="preview-heading">
+      <div class="preview-heading"><div><p class="intro-kicker">LIVE-VORSCHAU</p><h3 id="preview-heading">So sieht dein Beitrag aus</h3></div><span class="aspect-pill">4:5 · 1080 × 1350</span></div>
+      <div class="canvas-wrap"><canvas id="preview" width="1080" height="1350" aria-label="Vorschau des Einsatzbilds" role="img"></canvas></div>
+      <div class="preview-note"><span class="note-dot" aria-hidden="true"></span><p>Fotos und Texte lassen sich für jeden Einsatz austauschen. Der Absender wird nur auf deinem Gerät gespeichert.</p></div>
+    </section>
+  </div>
+  <footer class="page-footer"><p>Einsatzbild-Generator · Ohne Anmeldung · Fotos werden lokal verarbeitet</p><p>Keine KI-Bildgenerierung · Foto wird lokal bearbeitet · Nur freigegebene Bilder veröffentlichen</p></footer>
+</main>
+<script>
+(() => {
+  'use strict';
+  const $ = (id) => document.getElementById(id);
+  const canvas = $('preview');
+  const ctx = canvas.getContext('2d', { alpha: false });
+  const W = canvas.width;
+  const H = canvas.height;
+  const state = {
+    number: '50', year: '2026', keyword: 'B3', symbol: false,
+    mode: 'neutral-dark', image: null, zoom: 1, panX: 0, panY: 0, sender: '',
+    ready: false, uploadUrl: null, source: 'neutral', galleryName: null
+  };
+  const galleryPhotos = [];
+  const overlay = new Image();
+  const nodes = {
+    neutralRed: $('preset-neutral-red'), neutralDark: $('preset-neutral-dark')
+  };
+
+  function clamp(value, low, high) { return Math.max(low, Math.min(high, value)); }
+  function setMode(mode) {
+    state.mode = mode;
+    Object.entries(nodes).forEach(([key, button]) => {
+      const selected = ({ neutralRed: 'neutral-red', neutralDark: 'neutral-dark' })[key] === mode;
+      button.classList.toggle('active', selected);
+      button.setAttribute('aria-pressed', String(selected));
+    });
+    document.querySelectorAll('[data-gallery-name]').forEach(button => {
+      const active = mode === 'photo' && state.source === 'gallery' && state.galleryName === button.dataset.galleryName;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+    $('zoom').disabled = mode !== 'photo';
+    $('reset-position').disabled = mode !== 'photo';
+    draw();
+  }
+  // Die Galerie wird automatisch aus dem GitHub-Ordner "bilder" eingelesen.
+  // Neue Fotos erscheinen nach dem Hochladen ohne Änderung an index.html oder am Link.
+  const GALLERY_API = 'https://api.github.com/repos/ertlmathias-bot/feuerwehr-einsatzbilder/contents/bilder';
+  function galleryPhotoUrl(photo) {
+    return './bilder/' + encodeURIComponent(photo.name) + '?v=' + encodeURIComponent(photo.sha || '1');
+  }
+  function photoLabel(filename) {
+    return filename.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 55);
+  }
+  function useGalleryPhoto(photo) {
+    const img = new Image();
+    img.onload = () => {
+      state.source = 'gallery';
+      state.galleryName = photo.name;
+      state.image = img;
+      state.zoom = 1;
+      state.panX = 0;
+      state.panY = 0;
+      $('zoom').value = '1';
+      setMode('photo');
+      $('suggest-explanation').textContent = 'Galeriefoto „' + photoLabel(photo.name) + '“ gewählt. Bitte „Symbolbild“ bei Bedarf aktivieren.';
+    };
+    img.onerror = () => { alert('Das Galeriebild konnte gerade nicht geladen werden. Bitte ein anderes Foto wählen.'); };
+    img.src = galleryPhotoUrl(photo);
+  }
+  async function loadGallery() {
+    const message = $('gallery-status');
+    try {
+      const response = await fetch(GALLERY_API, { headers: { 'Accept': 'application/vnd.github+json' }, cache: 'no-store' });
+      if (response.status === 404) {
+        message.textContent = 'Aktuell sind noch keine zusätzlichen Galeriebilder hinterlegt.';
+        return;
+      }
+      if (!response.ok) throw new Error(String(response.status));
+      const files = await response.json();
+      if (!Array.isArray(files)) throw new Error('Ungültige Galerie');
+      const photos = files.filter(file => file.type === 'file' && /\.(jpe?g|png|webp)$/i.test(file.name)).sort((a,b) => a.name.localeCompare(b.name, 'de'));
+      for (const photo of photos) {
+        galleryPhotos.push(photo);
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'asset';
+        button.dataset.galleryName = photo.name;
+        button.setAttribute('aria-pressed', 'false');
+        button.setAttribute('aria-label', 'Galeriebild ' + photoLabel(photo.name) + ' auswählen');
+        const img = document.createElement('img');
+        img.src = galleryPhotoUrl(photo);
+        img.alt = '';
+        img.loading = 'lazy';
+        const caption = document.createElement('span');
+        caption.textContent = photoLabel(photo.name);
+        button.append(img, caption);
+        button.addEventListener('click', () => useGalleryPhoto(photo));
+        $('gallery-grid').appendChild(button);
+      }
+      message.textContent = photos.length
+        ? photos.length + ' zusätzliche' + (photos.length === 1 ? 's Galeriebild' : ' Galeriebilder') + ' verfügbar. Neue freigegebene Fotos erscheinen hier automatisch.'
+        : 'Noch keine zusätzlichen Galeriebilder. Du kannst trotzdem ein eigenes Foto hochladen.';
+    } catch (error) {
+      message.textContent = 'Zusätzliche Galeriebilder sind gerade nicht abrufbar. Eigene Fotos und die Standardmotive funktionieren weiterhin.';
+    }
+  }
+  function galleryScore(photo, keyword) {
+    const name = photoLabel(photo.name).toUpperCase();
+    const k = keyword.toUpperCase();
+    if (/^B\d|BRAND|FEUER/.test(k)) return (/\bB\d\b/.test(name) ? 4 : 0) + (/(BRAND|FEUER|HLF|LF)/.test(name) ? 3 : 0);
+    if (/^(THL|VU|R\d|RETTUNG)/.test(k)) return (/(THL|UNFALL|RETTUNG|VERKEHR|VU)/.test(name) ? 4 : 0);
+    return k && name.includes(k) ? 3 : 0;
+  }
+  function neutralBackground(mode) {
+    const dark = mode === 'neutral-dark';
+    const gradient = ctx.createLinearGradient(0, 0, W, H);
+    gradient.addColorStop(0, dark ? '#283748' : '#56151e');
+    gradient.addColorStop(.53, dark ? '#17212e' : '#a01626');
+    gradient.addColorStop(1, '#111b26');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, W, H);
+    ctx.save();
+    ctx.globalAlpha = .15;
+    ctx.translate(W * .32, H * .37);
+    ctx.rotate(-.28);
+    ctx.fillStyle = dark ? '#e6eaf0' : '#ffb4b6';
+    ctx.fillRect(-450, -260, 990, 165);
+    ctx.fillRect(-450, -40, 990, 20);
+    ctx.fillRect(-450, 15, 990, 8);
+    ctx.restore();
+    ctx.save();
+    ctx.font = '900 460px Arial, sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,.055)';
+    ctx.textBaseline = 'alphabetic';
+    ctx.fillText('112', 250, 710);
+    ctx.restore();
+  }
+  function photoBox() {
+    if (!state.image || !state.image.naturalWidth || !state.image.naturalHeight) return null;
+    const img = state.image;
+    const iw = img.naturalWidth, ih = img.naturalHeight;
+    const ratio = W / H;
+    let cropW, cropH;
+    if (iw / ih > ratio) { cropW = ih * ratio; cropH = ih; }
+    else { cropW = iw; cropH = iw / ratio; }
+    cropW /= state.zoom;
+    cropH /= state.zoom;
+    const availX = iw - cropW, availY = ih - cropH;
+    const x = clamp(availX * (.5 + state.panX / 2), 0, availX);
+    const y = clamp(availY * (.5 + state.panY / 2), 0, availY);
+    return { x, y, cropW, cropH, availX, availY };
+  }
+  function drawPhoto() {
+    if (!state.image || !state.image.complete) {
+      neutralBackground('neutral-dark');
+      return;
+    }
+    const box = photoBox();
+    if (!box) { neutralBackground('neutral-dark'); return; }
+    ctx.drawImage(state.image, box.x, box.y, box.cropW, box.cropH, 0, 0, W, H);
+  }
+  function fittingText(text, maxSize, minSize, maxWidth, weight) {
+    let size = maxSize;
+    while (size > minSize) {
+      ctx.font = `${weight} ${size}px Arial, Helvetica, sans-serif`;
+      if (ctx.measureText(text).width <= maxWidth) break;
+      size -= 1;
+    }
+    return size;
+  }
+  function draw() {
+    ctx.save();
+    if (state.mode === 'photo') drawPhoto();
+    else neutralBackground(state.mode);
+    if (overlay.complete && overlay.naturalWidth) ctx.drawImage(overlay, 0, 0, W, H);
+    const headline = `${state.number || '–'}. EINSATZ ${state.year || '–'}`;
+    const headlineSize = fittingText(headline, 103, 54, 970, 900);
+    ctx.font = `900 ${headlineSize}px Arial, Helvetica, sans-serif`;
+    ctx.fillStyle = '#fff';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    ctx.shadowColor = 'rgba(0,0,0,.17)';
+    ctx.shadowBlur = 9;
+    ctx.fillText(headline, 57, 1010);
+    ctx.shadowBlur = 0;
+    const subtitle = `Stichwort ${state.keyword || '–'}`;
+    const subtitleSize = fittingText(subtitle, 51, 23, 962, 500);
+    ctx.font = `500 ${subtitleSize}px Arial, Helvetica, sans-serif`;
+    ctx.fillStyle = '#fff';
+    ctx.fillText(subtitle, 57, 1170);
+    // Footer branding is optional, with no locality written into the public template.
+    const footer = state.sender.trim() ? `FREIWILLIGE FEUERWEHR ${state.sender.trim().toLocaleUpperCase('de-DE')}` : 'FREIWILLIGE FEUERWEHR';
+    const footerSize = fittingText(footer, 22, 15, 780, 700);
+    ctx.font = `700 ${footerSize}px Arial, Helvetica, sans-serif`;
+    ctx.fillStyle = '#f2f4f7';
+    ctx.textAlign = 'left';
+    ctx.fillText(footer, 116, 1285);
+    if (state.symbol) {
+      ctx.fillStyle = '#e1e5ea';
+      ctx.font = '500 20px Arial, Helvetica, sans-serif';
+      ctx.textAlign = 'right';
+      ctx.fillText('SYMBOLBILD', 1022, 1289);
+    }
+    ctx.restore();
+  }
+
+  // Load images from this repository; user uploads never leave the device.
+  overlay.addEventListener('load', draw);
+  overlay.src = 'data:image/png;base64,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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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';
+
+  function bindValue(id, key) {
+    $(id).addEventListener('input', (event) => {
+      state[key] = String(event.target.value).trim();
+      draw();
+    });
+  }
+  bindValue('number', 'number');
+  bindValue('year', 'year');
+  bindValue('keyword', 'keyword');
+  try { state.sender = (localStorage.getItem('einsatzbild-absender') || '').slice(0, 45); } catch (_) {}
+  $('sender').value = state.sender;
+  $('sender').addEventListener('input', (event) => {
+    state.sender = String(event.target.value).trim().slice(0, 45);
+    try { localStorage.setItem('einsatzbild-absender', state.sender); } catch (_) {}
+    draw();
+  });
+  $('symbol').addEventListener('change', e => { state.symbol = e.target.checked; draw(); });
+  nodes.neutralRed.addEventListener('click', () => setMode('neutral-red'));
+  nodes.neutralDark.addEventListener('click', () => setMode('neutral-dark'));
+  $('suggest').addEventListener('click', () => {
+    const keyword = state.keyword.trim().toUpperCase();
+    const explanation = $('suggest-explanation');
+    const best = galleryPhotos.map(photo => ({photo, score: galleryScore(photo, keyword)}))
+      .sort((a, b) => b.score - a.score)[0];
+    if (best && best.score > 0) {
+      useGalleryPhoto(best.photo);
+      explanation.textContent = 'Passendes Galeriebild wird geladen: ' + photoLabel(best.photo.name);
+      return;
+    }
+    if (/^(B\d|BRAND|FEUER)/.test(keyword)) {
+      setMode('neutral-red');
+      explanation.textContent = 'Vorschlag: neutraler roter Hintergrund. Ein passendes, freigegebenes Einsatzfoto kannst du selbst wählen oder hochladen.';
+    } else if (/^(THL|VU|R\d|RETTUNG)/.test(keyword)) {
+      setMode('neutral-dark');
+      explanation.textContent = 'Vorschlag: neutraler Hintergrund. Ein passendes THL-Foto ist derzeit nicht hinterlegt.';
+    } else {
+      setMode('neutral-red');
+      explanation.textContent = 'Vorschlag: neutraler Hintergrund. Weitere freigegebene Fotos können später ergänzt werden.';
+    }
+    draw();
+  });
+  $('zoom').addEventListener('input', (event) => { state.zoom = Number(event.target.value); draw(); });
+  $('reset-position').addEventListener('click', () => {
+    state.panX = 0; state.panY = 0;
+    state.zoom = 1; $('zoom').value = '1'; draw();
+  });
+
+  const fileInput = $('photo-upload');
+  function handleFile(file) {
+    if (!file) return;
+    if (!file.type.startsWith('image/') && !/\.(heic|heif|jpe?g|png|webp)$/i.test(file.name)) {
+      window.alert('Bitte eine Bilddatei auswählen.'); return;
+    }
+    if (file.size > 35 * 1024 * 1024) {
+      window.alert('Die Datei ist sehr groß. Bitte ein Bild unter 35 MB auswählen.'); return;
+    }
+    const url = URL.createObjectURL(file);
+    const image = new Image();
+    image.onload = () => {
+      if (state.uploadUrl) URL.revokeObjectURL(state.uploadUrl);
+      state.uploadUrl = url;
+      state.image = image;
+      state.source = 'upload';
+      state.galleryName = null;
+      state.zoom = 1; state.panX = 0; state.panY = 0;
+      $('zoom').value = '1';
+      setMode('photo');
+      $('suggest-explanation').textContent = 'Eigenes Foto geladen. Prüfe vor dem Veröffentlichen Personen, Kennzeichen und Rechte.';
+    };
+    image.onerror = () => {
+      URL.revokeObjectURL(url);
+      window.alert('Dieses Bildformat kann dein Browser nicht öffnen. Bitte als JPG oder PNG speichern und erneut versuchen.');
+    };
+    image.src = url;
+  }
+  fileInput.addEventListener('change', e => handleFile(e.target.files[0]));
+  const zone = $('drop-zone');
+  ['dragenter','dragover'].forEach(eventName => zone.addEventListener(eventName, e => {
+    e.preventDefault(); zone.classList.add('dragover');
+  }));
+  ['dragleave','drop'].forEach(eventName => zone.addEventListener(eventName, e => {
+    e.preventDefault(); zone.classList.remove('dragover');
+  }));
+  zone.addEventListener('drop', e => handleFile(e.dataTransfer.files[0]));
+
+  // Drag the visible photo to reframe it without editing the source file.
+  let drag = null;
+  canvas.addEventListener('pointerdown', e => {
+    if (state.mode !== 'photo' || !photoBox()) return;
+    drag = { x: e.clientX, y: e.clientY, panX: state.panX, panY: state.panY };
+    canvas.setPointerCapture(e.pointerId);
+  });
+  canvas.addEventListener('pointermove', e => {
+    if (!drag) return;
+    const box = photoBox();
+    if (!box) return;
+    const rect = canvas.getBoundingClientRect();
+    const dx = (e.clientX - drag.x) / rect.width;
+    const dy = (e.clientY - drag.y) / rect.height;
+    if (box.availX > 0) state.panX = clamp(drag.panX - dx * (2 * box.cropW / box.availX), -1, 1);
+    if (box.availY > 0) state.panY = clamp(drag.panY - dy * (2 * box.cropH / box.availY), -1, 1);
+    draw();
+  });
+  ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(name => canvas.addEventListener(name, () => { drag = null; }));
+
+  function exportReady() {
+    if (state.mode === 'photo' && (!state.image || !state.image.complete)) {
+      window.alert('Bitte warte, bis das Hintergrundbild geladen ist.'); return false;
+    }
+    if (!overlay.complete || !overlay.naturalWidth) {
+      window.alert('Die Gestaltungsvorlage wurde noch nicht geladen.'); return false;
+    }
+    return true;
+  }
+  function exportName(type) {
+    return `Feuerwehr-Einsatz-${String(state.number || '000').replace(/[^\d]/g,'')}-${String(state.year || '').replace(/[^\d]/g,'')}.${type === 'image/png' ? 'png' : 'jpg'}`;
+  }
+  function canvasBlob(type) {
+    draw();
+    return new Promise(resolve => canvas.toBlob(resolve, type, type === 'image/jpeg' ? .94 : undefined));
+  }
+  function saveBlob(blob, filename) {
+    const objectUrl = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = objectUrl;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(objectUrl), 60000);
+  }
+  async function download(type) {
+    if (!exportReady()) return;
+    const blob = await canvasBlob(type);
+    if (!blob) { window.alert('Der Bildexport hat nicht funktioniert.'); return; }
+    saveBlob(blob, exportName(type));
+    $('export-message').textContent = 'Bild erstellt. Auf dem iPhone findest du Downloads in Safari bzw. in der Dateien-App.';
+  }
+  async function shareImage() {
+    if (!exportReady()) return;
+    const type = 'image/jpeg';
+    const blob = await canvasBlob(type);
+    if (!blob) { window.alert('Der Bildexport hat nicht funktioniert.'); return; }
+    const name = exportName(type);
+    const file = new File([blob], name, { type });
+    try {
+      if (navigator.share && navigator.canShare && navigator.canShare({files:[file]})) {
+        await navigator.share({ files: [file] });
+        $('export-message').textContent = 'Teilen-Menü geöffnet. Falls verfügbar, „Bild sichern“ auswählen.';
+      } else {
+        saveBlob(blob, name);
+        $('export-message').textContent = 'Das Teilen-Menü wird hier nicht unterstützt. Das JPG wurde heruntergeladen.';
+      }
+    } catch (err) {
+      if (err && err.name === 'AbortError') return;
+      saveBlob(blob, name);
+      $('export-message').textContent = 'Der direkte Export war nicht möglich. Das JPG wurde stattdessen heruntergeladen.';
+    }
+  }
+  $('share-jpg').addEventListener('click', shareImage);
+  $('download-jpg').addEventListener('click', () => download('image/jpeg'));
+  $('download-png').addEventListener('click', () => download('image/png'));
+  loadGallery();
+  draw();
+})();
+
+</script>
+</body>
+</html>

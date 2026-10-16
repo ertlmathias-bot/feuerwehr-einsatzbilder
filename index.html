@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow, noarchive">
-  <meta name="theme-color" content="#151c26">
+  <meta name="theme-color" content="#f5f6f8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#101823" media="(prefers-color-scheme: dark)">
   <meta name="description" content="Einsatzbilder im Browser gestalten und direkt speichern.">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Einsatzbild erstellen</title>
@@ -74,6 +75,42 @@
   .page-footer{padding:28px 2px 0;text-align:center;font-size:11px;color:#778395}
   @media(max-width:800px){.app-grid{grid-template-columns:1fr;gap:21px}.page{max-width:590px;padding-top:18px}.preview-column{position:static}.preview-column .canvas-wrap{max-width:420px}}
   @media(max-width:500px){.header-inner{min-height:64px;padding:12px 15px;gap:11px}.brand-mark{width:37px;height:37px}.brand-mark span{height:19px}.header-inner h1{font-size:18px}.eyebrow{font-size:9px}.page{padding:15px 12px 30px}.work-title{margin-bottom:12px}.work-title h2{font-size:17px}.format{font-size:10px;padding:6px 9px}.panel{padding:17px 14px;border-radius:12px}.panel-heading{margin-bottom:15px}.fields-grid{gap:11px}.asset img,.asset-swatch{height:70px}.asset>span:last-child{font-size:11px}.preview-heading h3{font-size:16px}.suggest-row{flex-direction:column;gap:3px}.suggest-row p{padding:0}.canvas-wrap{max-width:380px}.page-footer{padding-top:19px}}
+
+  /* Automatischer Hell-/Dunkelmodus: betrifft nur die Bedienoberfläche, nicht das exportierte Einsatzbild. */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --ink: #f1f5fa;
+      --muted: #aab8c8;
+      --line: #374556;
+      --page: #101721;
+      --white: #1b2735;
+    }
+    .site-header {background:#0d141e;border-bottom-color:#dc2335}
+    .brand-mark {background:#2b3848}
+    .panel {background:var(--white);border-color:var(--line);box-shadow:0 6px 20px rgba(0,0,0,.12)}
+    .field span, .zoom-row label {color:#e5ebf3}
+    .field input {background:#111b28;color:#f5f7fb;border-color:#495b70}
+    .field input::placeholder {color:#98a8bb;opacity:1}
+    .field input:focus {border-color:#f16b74;outline-color:#a74350}
+    .upload-zone {background:#172435;border-color:#50627a}
+    .upload-zone.dragover {background:#38222d;border-color:#ef5a67}
+    .upload-icon {background:#344357;color:#f1f5fa}
+    .asset {background:#182534;color:#eaf0f7;border-color:#455366}
+    .asset.active {border-color:#ee4453;box-shadow:0 0 0 2px rgba(238,68,83,.18)}
+    .checkline {background:#172435;border-color:#405165}
+    .photo-tools {background:#172435;border-color:#405165}
+    .position-controls label, .hint, .preview-heading span {color:#aab8c8}
+    .secondary-button, .small-button {background:#253344;color:#f2f5fa;border-color:#526277}
+    .secondary-button:hover, .small-button:hover {background:#30435a}
+    .primary-button {background:#cc1d31;border-color:#cc1d31}
+    .primary-button:hover {background:#e12a3e}
+    .text-button {color:#ff7d89}
+    #export-message, .privacy, .preview-note, .page-footer {color:#a8b6c7}
+    .format {background:#27364a;color:#d8e2ec}
+    .section-rule {border-top-color:var(--line)}
+    .canvas-wrap {box-shadow:0 12px 35px rgba(0,0,0,.30)}
+  }
   </style>
 </head>
 <body>
@@ -90,7 +127,8 @@
      <div class="fields-grid">
        <label class="field"><span>Einsatznummer</span><input id="number" type="number" min="1" max="9999" value="" placeholder="z. B. 51" inputmode="numeric" autocomplete="off"></label>
        <label class="field"><span>Jahr</span><input id="year" type="number" min="2000" max="2100" value="2026" inputmode="numeric"></label>
-       <label class="field wide"><span>Alarmstichwort</span><input id="keyword" class="input-uppercase" type="text" value="" maxlength="65" placeholder="z. B. B3 oder THL 1" autocomplete="off"></label>
+       <label class="field wide"><span>Stichwort</span><input id="keyword" class="input-uppercase" type="text" value="" placeholder="z. B. B3 oder THL P" autocomplete="off"></label>
+       <label class="field wide"><span>Schlagwort / Beschreibung</span><input id="descriptor" class="input-uppercase" type="text" value="" maxlength="90" placeholder="z. B. Brand im Gebäude" autocomplete="off"></label>
        <label class="field wide"><span>Feuerwehr / Ort</span><input id="sender" class="input-uppercase" type="text" value="" maxlength="45" placeholder="z. B. Musterstadt" autocomplete="off" required></label>
      </div>
      <div class="section-rule"></div>
@@ -132,7 +170,7 @@
   const W = canvas.width;
   const H = canvas.height;
   const state = {
-    number: '', year: String(new Date().getFullYear()), keyword: '', symbol: true,
+    number: '', year: String(new Date().getFullYear()), keyword: '', descriptor: '', symbol: true,
     mode: 'neutral-dark', image: null, zoom: 1, panX: 0, panY: 0, sender: '',
     ready: false, uploadUrl: null, source: 'neutral', galleryName: null
   };
@@ -286,23 +324,64 @@
     ctx.shadowBlur = 9;
     ctx.fillText(headline, 57, 1010);
     ctx.shadowBlur = 0;
-    const subtitle = `Stichwort ${(state.keyword || '–').toLocaleUpperCase('de-DE')}`;
-    const subtitleSize = fittingText(subtitle, 51, 23, 962, 500);
-    ctx.font = `500 ${subtitleSize}px Arial, Helvetica, sans-serif`;
+    const key = (state.keyword || '–').toLocaleUpperCase('de-DE');
+    const description = state.descriptor.trim().toLocaleUpperCase('de-DE');
+    const subtitle = `Stichwort ${key}${description ? ` - ${description}` : ''}`;
     ctx.fillStyle = '#fff';
-    ctx.fillText(subtitle, 57, 1170);
-    // Footer branding is optional, with no locality written into the public template.
+    ctx.textAlign = 'left';
+    // Lange Schlagwörter auf maximal zwei Zeilen umbrechen, statt sie unlesbar zu verkleinern.
+    const maxSubtitleWidth = 962;
+    let subtitleSize = fittingText(subtitle, 51, 34, maxSubtitleWidth, 500);
+    let subtitleLines = [subtitle];
+    ctx.font = `500 ${subtitleSize}px Arial, Helvetica, sans-serif`;
+    if (ctx.measureText(subtitle).width > maxSubtitleWidth) {
+      subtitleSize = 36;
+      ctx.font = `500 ${subtitleSize}px Arial, Helvetica, sans-serif`;
+      const words = subtitle.split(/\s+/);
+      subtitleLines = [];
+      let line = '';
+      for (const word of words) {
+        const proposed = line ? `${line} ${word}` : word;
+        if (line && ctx.measureText(proposed).width > maxSubtitleWidth) {
+          subtitleLines.push(line);
+          line = word;
+        } else line = proposed;
+      }
+      if (line) subtitleLines.push(line);
+      if (subtitleLines.length > 2) {
+        // Im Extremfall die Schrift so weit verkleinern, bis zwei Zeilen genügen.
+        while (subtitleLines.length > 2 && subtitleSize > 21) {
+          subtitleSize -= 1;
+          ctx.font = `500 ${subtitleSize}px Arial, Helvetica, sans-serif`;
+          subtitleLines = [];
+          let newLine = '';
+          for (const word of words) {
+            const proposed = newLine ? `${newLine} ${word}` : word;
+            if (newLine && ctx.measureText(proposed).width > maxSubtitleWidth) {
+              subtitleLines.push(newLine);
+              newLine = word;
+            } else newLine = proposed;
+          }
+          if (newLine) subtitleLines.push(newLine);
+        }
+      }
+    }
+    subtitleLines.slice(0, 2).forEach((line, index) => ctx.fillText(line, 57, 1170 + index * (subtitleSize + 5)));
+    // Die kleinen weißen/roten Balken liegen im Overlay. Texte auf deren Mitte ausrichten.
     const footer = state.sender.trim() ? `FREIWILLIGE FEUERWEHR ${state.sender.trim().toLocaleUpperCase('de-DE')}` : 'FREIWILLIGE FEUERWEHR · ORT EINGEBEN';
-    const footerSize = fittingText(footer, 22, 15, 780, 700);
+    // Die drei Designbalken sind etwa 25 px hoch und bei y = 1304 mittig ausgerichtet.
+    // Footer und Symbolbild erhalten dieselbe visuelle Höhe; lange Ortsnamen passen sich an.
+    const footerSize = fittingText(footer, 29, 14, 700, 700);
     ctx.font = `700 ${footerSize}px Arial, Helvetica, sans-serif`;
     ctx.fillStyle = '#f2f4f7';
+    ctx.textBaseline = 'middle';
     ctx.textAlign = 'left';
-    ctx.fillText(footer, 116, 1285);
+    ctx.fillText(footer, 116, 1304);
     if (state.symbol) {
-      ctx.fillStyle = '#e1e5ea';
-      ctx.font = '500 20px Arial, Helvetica, sans-serif';
+      ctx.fillStyle = '#f2f4f7';
+      ctx.font = '600 29px Arial, Helvetica, sans-serif';
       ctx.textAlign = 'right';
-      ctx.fillText('SYMBOLBILD', 1022, 1289);
+      ctx.fillText('SYMBOLBILD', 1022, 1304);
     }
     ctx.restore();
   }
@@ -321,6 +400,7 @@
   bindValue('number', 'number');
   bindValue('year', 'year');
   bindValue('keyword', 'keyword');
+  bindValue('descriptor', 'descriptor');
   // Keine Vorbelegung: Der Absender muss bei jedem neuen Einsatz neu eingegeben werden.
   $('sender').value = '';
   $('sender').addEventListener('input', (event) => {
@@ -401,9 +481,9 @@
   ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(name => canvas.addEventListener(name, () => { drag = null; }));
 
   function exportReady() {
-    if (!String(state.number).trim() || !String(state.keyword).trim()) {
-      window.alert('Bitte Einsatznummer und Alarmstichwort eingeben.');
-      (!String(state.number).trim() ? $('number') : $('keyword')).focus();
+    if (!String(state.number).trim() || !String(state.keyword).trim() || !String(state.descriptor).trim()) {
+      window.alert('Bitte Einsatznummer, Stichwort und Schlagwort eingeben.');
+      (!String(state.number).trim() ? $('number') : !String(state.keyword).trim() ? $('keyword') : $('descriptor')).focus();
       return false;
     }
     if (!String(state.sender).trim()) {
